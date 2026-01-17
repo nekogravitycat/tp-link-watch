@@ -20,7 +20,12 @@ if not username or not password:
   raise ValueError("Please set TPLINK_USERNAME and TPLINK_PASSWORD in .env file")
 
 app = FastAPI()
-device_manager = TPLinkDeviceManager(username, password)
+device_manager = TPLinkDeviceManager(
+  username=username,
+  password=password,
+  prefetch=False,
+  cache_devices=False,
+)
 
 def serialize_device_info(obj):
   if hasattr(obj, "__dict__"):
