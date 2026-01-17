@@ -18,11 +18,6 @@ class DeviceInfo(BaseModel):
   fw_id: str
   is_same_region: bool
   status: int
-    
-class DeviceResponse(BaseModel):
-  alias: str
-  model_type: str
-  info: DeviceInfo
 
 class DeviceStatus(BaseModel):
   status: str
@@ -53,11 +48,7 @@ list_devices_responses = {
     "content": {
       "application/json": {
         "example": [
-          {
-            "alias": "Living Room",
-            "model_type": "UNKNOWN",
-            "info": MOCK_DEVICE_INFO
-          }
+          MOCK_DEVICE_INFO
         ]
       }
     }
@@ -69,11 +60,7 @@ get_device_responses = {
     "description": "Device details",
     "content": {
       "application/json": {
-        "example": {
-          "alias": "Living Room",
-          "model_type": "UNKNOWN",
-          "info": MOCK_DEVICE_INFO
-        }
+        "example": MOCK_DEVICE_INFO
       }
     }
   },
